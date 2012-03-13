@@ -1,3 +1,4 @@
+
 function getViewport() {
   var viewportwidth;
   var viewportheight;
