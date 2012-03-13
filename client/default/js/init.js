@@ -5,25 +5,20 @@ $fh.ready(function () {
 var myScroll;
 
 function init () {
+  if ('undefined' === typeof iScroll) {
+    iScroll = exports.iScroll;
+  }
+  myScroll = new iScroll('content');
+  
   // Load the menu bar 
   setUpLogo();
-  setUpMenuBar();
+  setUpMenuBar(); 
   setUpReloadButton();
   
   // Resolve the data to display in the tabs. Pass setContentPane function 
   // as a callback - we do not want setContentPane called until the tab
   //  data has been loaded.
   getTabData(setContentPane);
-  
-  // init iScroll  
-  /*
-  function loaded() {
-    setTimeout(function () {
-      myScroll = new iScroll('content');
-    }, 100);
-  }
-  window.addEventListener('load', loaded, false);
-  */
   
   
   
@@ -98,7 +93,10 @@ function getTabData(callback) {
   
   // Make act call to get latest config from server
   $fh.act({
-    act: 'getConfig'
+    act: 'getConfig',
+    req: {
+      ts: Date.now()
+    }
   }, function (result) {
     // Got config from server, so overwrite our local config
     $fh.log({message: 'got config from server:' + JSON.stringify(result)});
@@ -108,7 +106,7 @@ function getTabData(callback) {
     $fh.data({
       act: 'save',
       key: 'config',
-      val: JSON.stringify(config)
+      val: JSON.stringify(configData)
     }, function (val) {
       // Save successful, continue with initialisation
       setUpTabs(configData, callback);      
@@ -221,3 +219,6 @@ function setTabData(tabContent, tabData) {
     tabContent.append(paragraph);
   }
 }
+
+
+

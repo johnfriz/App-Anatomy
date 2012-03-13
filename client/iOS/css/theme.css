@@ -15,7 +15,6 @@ body {
   background-color: none;
   background-image: none;
   background: transparent;
-  font-family: Robotica, Droid, Droid Sans, Droid Sans Mono, Droid Serif, DroidSans, DroidSansMono, DroidSerif;
   font-size: 1em;
 }
 
@@ -29,7 +28,7 @@ a: {
 } 
 
 #top1{
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0bccd), color-stop(50%,#889bb3), color-stop(50%,#8195af), color-stop(100%,#6d84a2));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0bccd), color-stop(50%,#889bb3), color-stop(50%,#8195af), color-stop(100%,#6d84a2));
   background: -webkit-linear-gradient(top, #b0bccd 0%,#889bb3 50%,#8195af 50%,#6d84a2 100%);
   background: linear-gradient(top, #b0bccd 0%,#889bb3 50%,#8195af 50%,#6d84a2 100%);
   border-top: 1px solid #cdd5df;
@@ -66,6 +65,11 @@ a: {
   );
 }
 
+#reload_button:hover,
+#reload_button:focus:hover {
+  background: rgb(172,169,172);
+}
+
 body {
   background-color: black;
   position : relative;
@@ -74,7 +78,7 @@ body {
 #content {
   padding: 0px 5px 0px 5px;
   font-family: Helvetica;
-  font-size: 0.825em;
+  font-size: 1em;
   text-align: justify;
   margin: 0px ;
   margin-left: -2%;
@@ -95,11 +99,24 @@ body {
   min-width: 100%;
 }
 
+#bottom1 #menu, #bottom2 #menu{
+  position: fixed;
+  top: 90%;
+}
+
+#menu, #footer {
+ height: 52px; 
+}
+
+#menu .nav_item {
+  width: 24.25%; 
+  height: 47px;
+}
+
 #menu{
-  height: 44px;
   padding: 0px 5px;
   z-index: 1;
-  position: relative;
+  width: 100%;
   background: #3a3a3a;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a3a3a), color-stop(50%,#141414), color-stop(50%,#000000), color-stop(100%,#000000));
   background: -webkit-linear-gradient(top,  #3a3a3a 0%,#141414 50%,#000000 50%,#000000 100%);  
