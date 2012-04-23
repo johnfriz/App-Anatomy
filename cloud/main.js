@@ -13,3 +13,7 @@ exports.getConfig = function(params, callback) {
   var cfg = require("config.js");
   return callback(null, {data: cfg.config});
 };
+
+exports.john = function(params, callback) {
+  return callback(null, {"data":"Hi"});
+}
