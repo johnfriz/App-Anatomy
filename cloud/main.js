@@ -8,7 +8,7 @@ var util = require('util');
 /* 'getConfig' server side REST API method.
  * Trivial example of pulling in a shared config file.
  */
-exports.getConfig = function(params, callback) {
+exports.getConfig1 = function(params, callback) {
   console.log('in getConfig with ts:' + new Date());
   var cfg = require("config.js");
   return callback(null, {data: cfg.config});
